@@ -1,0 +1,14 @@
+# Python stuff
+__pycache__/
+*.py[cod]
+venv/
+.env
+
+# ML Stuff (prevents uploading heavy models by accident)
+*.pkl
+*.h5
+*.onnx
+
+# MQL5 stuff
+*.ex5
+*.log
