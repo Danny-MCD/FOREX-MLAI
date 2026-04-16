@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Nadir | Resource Library</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&display=swap');
+        
+        body {
+            background-color: #0a0a0c;
+            color: #d1d1d1;
+            font-family: 'Fira+Code', monospace;
+            background-image: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #0a0a0c 100%);
+            min-height: 100vh;
+        }
+
+        .glass-panel {
+            background: rgba(20, 20, 25, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+
+        .resource-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .category-tag {
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            width: fit-content;
+        }
+
+        .external-link {
+            color: #3b82f6;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .external-link:hover {
+            color: #60a5fa;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <!-- Navigation Header -->
+    <nav class="max-w-6xl mx-auto mb-8 flex justify-between items-center">
+        <div>
+            <h1 class="text-2xl font-bold tracking-tighter text-blue-500">THE NADIR <span class="text-white">// RESOURCE_LIB</span></h1>
+            <p class="text-xs text-gray-500 uppercase tracking-widest">Essential Tools & Documentation</p>
+        </div>
+        <a href="index.html" class="glass-panel px-4 py-2 text-sm hover:text-blue-400 transition-colors">
+            &larr; BACK_TO_DASHBOARD
+        </a>
+    </nav>
+
+    <main class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Tool: MetaTrader 5 -->
+        <div class="glass-panel p-6 resource-card">
+            <div class="category-tag mb-3">TRADING ENGINE</div>
+            <h2 class="text-xl font-bold text-white mb-2">MetaTrader 5</h2>
+            <p class="text-gray-400 text-sm mb-6 flex-grow">
+                The primary execution platform for our AI signals. Required for backtesting MQL5 scripts and executing trades via the Python bridge.
+            </p>
+            <a href="https://www.metatrader5.com/en/download" target="_blank" class="external-link text-sm font-semibold">
+                DOWNLOAD_MT5 <span>&nearr;</span>
+            </a>
+        </div>
+
+        <!-- Tool: Anaconda -->
+        <div class="glass-panel p-6 resource-card">
+            <div class="category-tag mb-3" style="color: #10b981; border-color: rgba(16, 185, 129, 0.2); background: rgba(16, 185, 129, 0.1);">ENV_MANAGER</div>
+            <h2 class="text-xl font-bold text-white mb-2">Anaconda (Python 3.12)</h2>
+            <p class="text-gray-400 text-sm mb-6 flex-grow">
+                Used to manage the machine learning environment, specifically the scikit-learn and MetaTrader5 libraries in a controlled workspace.
+            </p>
+            <a href="https://www.anaconda.com/download" target="_blank" class="external-link text-sm font-semibold" style="color: #10b981;">
+                GET_ANACONDA <span>&nearr;</span>
+            </a>
+        </div>
+
+        <!-- Tool: Scikit-Learn -->
+        <div class="glass-panel p-6 resource-card">
+            <div class="category-tag mb-3" style="color: #f59e0b; border-color: rgba(245, 158, 11, 0.2); background: rgba(245, 158, 11, 0.1);">ML_LIBRARY</div>
+            <h2 class="text-xl font-bold text-white mb-2">Scikit-Learn</h2>
+            <p class="text-gray-400 text-sm mb-6 flex-grow">
+                The core library used for our Random Forest Classifier. Includes extensive documentation on model tuning and data preprocessing.
+            </p>
+            <a href="https://scikit-learn.org/stable/" target="_blank" class="external-link text-sm font-semibold" style="color: #f59e0b;">
+                VIEW_DOCS <span>&nearr;</span>
+            </a>
+        </div>
+
+        <!-- Tool: VS Code -->
+        <div class="glass-panel p-6 resource-card">
+            <div class="category-tag mb-3">IDE</div>
+            <h2 class="text-xl font-bold text-white mb-2">VS Code</h2>
+            <p class="text-gray-400 text-sm mb-6 flex-grow">
+                Our primary development environment for writing Python servers and managing the overall project structure.
+            </p>
+            <a href="https://code.visualstudio.com/" target="_blank" class="external-link text-sm font-semibold">
+                GET_VSCODE <span>&nearr;</span>
+            </a>
+        </div>
+
+        <!-- Tool: MQL5 Documentation -->
+        <div class="glass-panel p-6 resource-card">
+            <div class="category-tag mb-3" style="color: #8b5cf6; border-color: rgba(139, 92, 246, 0.2); background: rgba(139, 92, 246, 0.1);">DOCUMENTATION</div>
+            <h2 class="text-xl font-bold text-white mb-2">MQL5 Reference</h2>
+            <p class="text-gray-400 text-sm mb-6 flex-grow">
+                Official guide for the MetaQuotes Language 5. Essential for understanding Expert Advisor (EA) development and trade execution functions.
+            </p>
+            <a href="https://www.mql5.com/en/docs" target="_blank" class="external-link text-sm font-semibold" style="color: #8b5cf6;">
+                READ_REFERENCE <span>&nearr;</span>
+            </a>
+        </div>
+
+        <!-- Tool: Git -->
+        <div class="glass-panel p-6 resource-card">
+            <div class="category-tag mb-3" style="color: #ef4444; border-color: rgba(239, 68, 68, 0.2); background: rgba(239, 68, 68, 0.1);">VERSION_CONTROL</div>
+            <h2 class="text-xl font-bold text-white mb-2">Git SCM</h2>
+            <p class="text-gray-400 text-sm mb-6 flex-grow">
+                Required for cloning the repository and maintaining version history of your trading algorithms.
+            </p>
+            <a href="https://git-scm.com/" target="_blank" class="external-link text-sm font-semibold" style="color: #ef4444;">
+                INSTALL_GIT <span>&nearr;</span>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="max-w-6xl mx-auto mt-12 text-center text-gray-600 text-xs">
+        <p>SYSTEM STATUS: ALL_RESOURCES_VERIFIED // SESSION_USER: Danny-MCD</p>
+    </footer>
+
+</body>
+</html>
