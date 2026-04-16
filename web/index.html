@@ -1,47 +1,83 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FOREX-MLAI | Trading Systems</title>
+    <title>THE NADIR | Forex-MLAI Command Center</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 1000px; margin: 0 auto; padding: 20px; background: #f4f7f6; }
-        header { background: #2c3e50; color: white; padding: 2rem; border-radius: 8px; text-align: center; margin-bottom: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-top: 5px solid #3498db; }
-        h2 { color: #2c3e50; }
-        .status { font-weight: bold; color: #27ae60; }
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #27ae60;
+            --bg: #f4f7f6;
+            --white: #ffffff;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 1200px; margin: 0 auto; padding: 20px; background: var(--bg); }
+        header { background: var(--primary); color: white; padding: 4rem 2rem; border-radius: 8px; text-align: center; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        
+        .hero-text { font-size: 1.2rem; opacity: 0.9; margin-top: 10px; }
+
+        .button-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px; }
+        
+        .nav-button { 
+            background: var(--white); 
+            border: none; 
+            border-top: 5px solid var(--secondary);
+            border-radius: 8px; 
+            padding: 30px; 
+            text-align: left; 
+            text-decoration: none; 
+            color: var(--primary); 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .nav-button:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+            border-top-color: var(--accent);
+        }
+
+        .nav-button h2 { margin: 0; font-size: 1.5rem; color: var(--primary); }
+        .nav-button p { margin: 10px 0 0 0; font-size: 0.95rem; color: #7f8c8d; line-height: 1.4; }
+        
+        .footer { text-align: center; margin-top: 60px; padding: 20px; color: #95a5a6; border-top: 1px solid #ddd; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>FOREX-MLAI Project</h1>
-        <p>Machine Learning & MQL5 Automated Trading System</p>
+        <h1>THE NADIR</h1>
+        <p class="hero-text">The Lowest Point in any Situation</p>
     </header>
 
-    <div class="grid">
-        <div class="card">
-            <h2>Strategy Overview</h2>
-            <p>Utilizing Triple Timeframe Analysis:</p>
-            <ul>
-                <li><strong>4H:</strong> Market Regime Anchor</li>
-                <li><strong>15M:</strong> Pattern Setup</li>
-                <li><strong>2M:</strong> Precision Trigger</li>
-            </ul>
-        </div>
+    <div class="button-grid">
+        <a href="Development_Log.html" class="nav-button">
+            <h2>Development Log</h2>
+            <p>Chronological documentation of the project journey, technical hurdles, and the "Common Folder" bridge solution.</p>
+        </a>
 
-        <div class="card">
-            <h2>ML Robot Status</h2>
-            <p>Current Stage: <span class="status">Data Collection</span></p>
-            <p>Model Type: Gradient Boosting / Neural Network (Pending)</p>
-        </div>
+        <a href="strategies.html" class="nav-button">
+            <h2>Forex Strategies</h2>
+            <p>Deep dive into the Triple Screen Methodology: Analyzing the 4H trend, 15M filters, and 2M execution triggers.</p>
+        </a>
 
-        <div class="card">
-            <h2>MQL5 Connectivity</h2>
-            <p>API Bridge: Python MetaTrader5 Library</p>
-            <p>Symbolic Link Status: <span class="status">Connected</span></p>
-        </div>
+        <a href="readme_viewer.html" class="nav-button">
+            <h2>Project README / Git</h2>
+            <p>Step-by-step guide to cloning the repository and setting up the environment on your local machine.</p>
+        </a>
+
+        <a href="resources.html" class="nav-button">
+            <h2>Resource Library</h2>
+            <p>Direct access to free software used: Anaconda (Python 3.12.4), VS Code, MetaTrader 5, and required ML libraries.</p>
+        </a>
+    </div>
+
+    <div class="footer">
+        FOREX-MLAI Project | System Architecture by Danny-MCD
     </div>
 
 </body>

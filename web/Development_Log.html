@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOREX-MLAI | Project Save State</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #27ae60;
+            --warning: #e67e22;
+            --code-bg: #1e1e1e;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 1200px; margin: 0 auto; padding: 20px; background: #f4f7f6; }
+        header { background: var(--primary); color: white; padding: 2.5rem; border-radius: 8px; text-align: center; margin-bottom: 30px; }
+        
+        .status-bar { background: #fff; padding: 15px; border-radius: 8px; margin-bottom: 30px; border-left: 10px solid var(--accent); display: flex; justify-content: space-around; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        
+        h2 { color: var(--primary); border-bottom: 2px solid var(--secondary); padding-bottom: 10px; margin-top: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; margin-bottom: 40px; }
+        .card { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+
+        pre { background: var(--code-bg); color: #dcdcdc; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 0.85rem; }
+        
+        .screenshot-box { background: #fff; border: 1px solid #ddd; padding: 10px; border-radius: 8px; margin: 15px 0; }
+        .screenshot-box img { width: 100%; border-radius: 4px; display: block; }
+        .img-caption { font-size: 0.8rem; color: #7f8c8d; margin-top: 8px; font-style: italic; text-align: center; }
+        
+        .file-tree { background: #2c3e50; color: #bdc3c7; padding: 20px; border-radius: 8px; font-family: 'Consolas', monospace; font-size: 0.9rem; }
+        .highlight { color: #f1c40f; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>FOREX-MLAI Development Log</h1>
+        <p>Documenting the EURUSD Triple Screen AI Architecture</p>
+    </header>
+
+    <div class="status-bar">
+        <span>System: EURUSD Triple Screen AI</span>
+        <span>Environment: Python 3.12.4</span>
+        <span>Bridge: Operational</span>
+    </div>
+
+    <section>
+        <h2>1. Infrastructure & Workspace</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>VS Code Workspace Setup</h3>
+                <p>The project is organized to separate the Python "Brain" logic from the MQL5 "Body" execution scripts.</p>
+                <div class="file-tree">
+                    FOREX-MLAI/<br>
+                    ├── python/<br>
+                    │&nbsp;&nbsp; ├── models/ <span class="highlight">trading_model_v1.pkl</span><br>
+                    │&nbsp;&nbsp; ├── src/ <span class="highlight">trade_server.py</span><br>
+                    │&nbsp;&nbsp; └── data/ <span class="highlight">eurusd_hist.csv</span><br>
+                    └── mql5/<br>
+                    &nbsp;&nbsp;&nbsp; └── Experts/ <span class="highlight">AI_Trader_v1.mq5</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Tools & Versions</h3>
+                <ul>
+                    <li><strong>Anaconda:</strong> Python 3.12.4 (base)</li>
+                    <li><strong>Terminal:</strong> PowerShell (RemoteSigned enabled)</li>
+                    <li><strong>MetaTrader 5:</strong> Version 5.0 (Build 4000+)</li>
+                    <li><strong>Libraries:</strong> Scikit-Learn, MT5 Python API</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Communication Bridge (MQL5 to Python)</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Python Signal Server</h3>
+                <div class="screenshot-box">
+                    <img src="assets/img/vscode_server_run.png" alt="Python Server Running">
+                    <div class="img-caption">Python server successfully processing signals in VS Code terminal.</div>
+                </div>
+                <pre><code># Writing to MT5 Common Folder
+COMMON_PATH = os.path.join(os.environ['APPDATA'], 
+              "MetaQuotes", "Terminal", "Common", "Files")</code></pre>
+            </div>
+
+            <div class="card">
+                <h3>MQL5 Expert Advisor</h3>
+                <div class="screenshot-box">
+                    <img src="assets/img/mt5_ea_running.png" alt="MT5 EA Chart">
+                    <div class="img-caption">Expert Advisor attached to EURUSD Chart.</div>
+                </div>
+                <strong>Signal Receiver Logic:</strong>
+                <pre><code>// Reading from Common Folder
+FileOpen("ai_signal.txt", 
+         FILE_READ|FILE_TXT|FILE_COMMON);</code></pre>
+                <p><em>Note: Since the screenshot corners are cropped, MQL5 logs confirm the "ai_signal.txt" is being polled every 2 minutes.</em></p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Machine Learning Logic</h2>
+        <div class="card">
+            <h3>Random Forest Classifier</h3>
+            <p>Initial model training achieved <strong>54.36% accuracy</strong>. The model analyzes three timeframes to confirm market direction before a signal is written to the bridge.</p>
+            <ul>
+                <li><strong>4H:</strong> Market Regime Anchor (Trend)</li>
+                <li><strong>15M:</strong> Pattern Setup (SMA 20 Filter)</li>
+                <li><strong>2M:</strong> Execution Trigger (Signal Generation)</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>4. Current Roadmap</h2>
+        <div class="grid">
+            <div class="card" style="border-top: 5px solid var(--warning);">
+                <h3>Task 1: Execution</h3>
+                <p>Transitioning from "Wait" signals to active <code>OrderSend()</code> commands in MQL5.</p>
+            </div>
+            <div class="card" style="border-top: 5px solid var(--warning);">
+                <h3>Task 2: Indicators</h3>
+                <p>Adding RSI and Bollinger Bands to the Python model for higher signal conviction.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; margin-top: 50px; padding: 20px; color: #95a5a6;">
+        FOREX-MLAI Project | User: Danny-MCD | System Save State
+    </footer>
+
+</body>
+</html>
